@@ -1,0 +1,50 @@
+@import "./config.scss";
+.home {
+  margin: 30px 10px;
+  font-family: NunitoSans;
+}
+
+.inputContainer {
+  display: grid;
+  grid-template-columns: 100%;
+  gap: 20px;
+}
+
+
+.inputContainer__search__textfield {
+  font-family: NunitoSansLight;
+  background-color: #fff;
+  padding: 18px 12px 18px 40px;
+  color: $veryDark;
+  width: 280px;
+  border: none;
+  border-radius: 4px;
+  outline: none;
+  box-shadow: -3px 2px 7px rgba(0, 0, 0, 0.078), 3px 2px 7px rgba(0, 0, 0, 0.078);
+  background: url("../assets/search.svg") no-repeat 12px;
+  background-size: 20px;
+}
+
+.inputContainer__filter__dropDown {
+  padding: 15px 18px;
+  width: 180px;
+  border: none;
+  background: #fff;
+  border-radius: 4px;
+  box-shadow: -3px 2px 7px rgba(0, 0, 0, 0.078), 3px 2px 7px rgba(0, 0, 0, 0.078);
+  cursor: pointer;
+  font-family: NunitoSansLight;
+  outline: none;
+  margin-top: 3px;
+}
+
+@media screen and (min-width: 720px) {
+  .home {
+    margin: 30px;
+  }
+  .inputContainer {
+    display: flex;
+    flex-flow: row nowarp;
+    justify-content: space-between;
+  }
+}
