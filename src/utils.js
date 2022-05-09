@@ -1,4 +1,6 @@
 function capitalize(value) {
+  if (!value) return "";
+
   let textArray = value.split(" ");
   let capitalizedText = "";
   let conjunctions = ["the", "of", "a"];
@@ -18,8 +20,4 @@ function numberWithCommas(x) {
   return parts.join(".");
 }
 
-
-export {
-  capitalize,
-  numberWithCommas
-}
+export { capitalize, numberWithCommas };

@@ -3,18 +3,9 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background: hsl(0, 0%, 98%);
-  font-family: NunitoSans;
+  font-family: "Nunito Sans", Helvetica, sans-serif;
 }
 
-@font-face {
-  font-family: NunitoSans;
-  src: url("./assets/NunitoSans.ttf");
-}
-@font-face {
-  font-family: NunitoSansLight;
-  src: url("./assets/NunitoSans-Light.ttf");
-}
-@font-face {
-  font-family: NunitoSansBold;
-  src: url("./assets/NunitoSans-Bold.ttf");
-}
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
