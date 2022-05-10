@@ -1,3 +1,4 @@
+import PropTypes from "prop-types";
 import Country from "./Country";
 
 function Countries(props) {
@@ -9,5 +10,9 @@ function Countries(props) {
     </div>
   );
 }
+
+Countries.propTypes = {
+  countries: PropTypes.array.isRequired,
+};
 
 export default Countries;

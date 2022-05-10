@@ -1,4 +1,5 @@
 import { useReducer } from "react";
+import PropTypes from "prop-types";
 import FilterCountries from "./FilterCountries";
 import Countries from "./Countries";
 
@@ -36,6 +37,10 @@ const FilteredCountries = (props) => {
       <Countries countries={state} />
     </div>
   );
+};
+
+FilteredCountries.propTypes = {
+  countries: PropTypes.object,
 };
 
 export default FilteredCountries;

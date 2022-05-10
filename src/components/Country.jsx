@@ -1,3 +1,4 @@
+import PropTypes from "prop-types";
 import { capitalize, numberWithCommas } from "../utils";
 
 function Country(props) {
@@ -24,5 +25,9 @@ function Country(props) {
     </div>
   );
 }
+
+Country.propTypes = {
+  country: PropTypes.object,
+};
 
 export default Country;
