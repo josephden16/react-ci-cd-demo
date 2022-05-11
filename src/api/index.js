@@ -1,7 +1,9 @@
 import axios from "axios";
 
+export const apiUrl = "https://restcountries.com/v2";
+
 const instance = axios.create({
-  baseURL: "https://restcountries.com/v2",
+  baseURL: apiUrl,
 });
 
 export const fetchAllCountries = async () => {
@@ -17,23 +19,6 @@ export const fetchAllCountries = async () => {
       throw new Error(errorMessage);
     } else {
       throw new Error("Failed to fetch all countries");
-    }
-  }
-};
-
-export const fetchCountryByCode = async (countryCode) => {
-  try {
-    const response = await instance.get(`/alpha/${countryCode}`);
-    if (response.data) {
-      return response.data;
-    }
-    return null;
-  } catch (error) {
-    if (error?.response) {
-      const errorMessage = error.response.data.error.message;
-      throw new Error(errorMessage);
-    } else {
-      throw new Error("Failed to fetch country data");
     }
   }
 };
