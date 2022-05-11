@@ -40,7 +40,7 @@ const FilteredCountries = (props) => {
 };
 
 FilteredCountries.propTypes = {
-  countries: PropTypes.object,
+  countries: PropTypes.array,
 };
 
 export default FilteredCountries;

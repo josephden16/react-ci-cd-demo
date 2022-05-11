@@ -18,7 +18,7 @@ function Main() {
           setCountries([]);
         }
       } catch (error) {
-        setError(error.message || "Failed to fetch countries");
+        setError("Failed to fetch countries");
       } finally {
         setIsLoading(false);
       }
@@ -26,7 +26,12 @@ function Main() {
     fetchData();
   }, []);
 
-  if (error) return <div className="my-[100px] text-center">{error}</div>;
+  if (error)
+    return (
+      <div data-testid="error" className="my-[100px] text-center">
+        {error}
+      </div>
+    );
 
   if (isLoading)
     return <div className="my-[100px] text-center">Loading...</div>;

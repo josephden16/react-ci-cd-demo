@@ -3,7 +3,7 @@ import { capitalize, numberWithCommas } from "../utils";
 
 function Country(props) {
   return (
-    <div className="countries__country">
+    <div className="countries__country" data-testid="country">
       <div className="h-[250px] lg:h-[200px] w-full relative">
         <img
           src={props.country.flag}
