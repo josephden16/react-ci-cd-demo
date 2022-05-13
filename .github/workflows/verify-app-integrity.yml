@@ -1,7 +1,6 @@
-name: Linting Check and Run Tests (Unit and Integration)
+name: Run Tests (Unit and Integration) and Perform Linting Checks
 on:
   push:
-  pull_request:
 jobs:
   verify-code-integrity-and-run-tests:
     runs-on: ubuntu-latest

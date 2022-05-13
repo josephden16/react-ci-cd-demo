@@ -1,10 +1,9 @@
 # .github/workflows/netlify.yml
 name: Build and Deploy Preview
 on:
-  push:
   pull_request:
     branches:
-      - "!master"
+      - "!main"
 jobs:
   build-and-deploy:
     runs-on: ubuntu-18.04
