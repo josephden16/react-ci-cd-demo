@@ -1,7 +1,11 @@
 name: Build and Deploy Preview
 on:
   push:
+    branches-ignore:
+      - main
   pull_request:
+    branches-ignore:
+      - main
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
