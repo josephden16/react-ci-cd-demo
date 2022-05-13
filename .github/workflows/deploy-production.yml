@@ -1,0 +1,44 @@
+# .github/workflows/netlify.yml
+name: Build and Deploy to Production
+on:
+  push:
+    branches:
+      - "main"
+jobs:
+  setup:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: "16"
+      - name: Install Dependencies
+        run: yarn install
+
+  verify-code-integrity-and-run-tests:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Run Linting Checks
+        run: yarn lint
+      - name: Run Tests
+        run: yarn test
+
+  build-and-deploy:
+    runs-on: ubuntu-18.04
+    steps:
+      - name: Make production build
+        run: yarn build
+      - name: Deploy to Netlify
+        uses: nwtgck/actions-netlify@v1.2.3
+        with:
+          production-deploy: true
+          production-branch: main
+          publish-dir: "./dist"
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          deploy-message: "Deploy from GitHub Actions"
+          enable-pull-request-comment: false
+          enable-commit-comment: true
+          overwrites-pull-request-comment: true
+        env:
+          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+          NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
