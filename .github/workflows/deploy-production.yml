@@ -16,6 +16,7 @@ jobs:
         run: yarn install
 
   verify-code-integrity-and-run-tests:
+    needs: setup
     runs-on: ubuntu-latest
     steps:
       - name: Run Linting Checks
@@ -24,6 +25,7 @@ jobs:
         run: yarn test
 
   build-and-deploy:
+    needs: setup
     runs-on: ubuntu-18.04
     steps:
       - name: Make production build

@@ -17,6 +17,7 @@ jobs:
         run: yarn install
 
   build-and-deploy:
+    needs: setup
     runs-on: ubuntu-18.04
     steps:
       - name: Make production build
