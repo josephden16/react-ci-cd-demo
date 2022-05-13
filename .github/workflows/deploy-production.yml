@@ -1,12 +1,12 @@
 # .github/workflows/netlify.yml
-name: Build and Deploy to Production
+name: Run Tests, Build and Deploy to Production
 on:
   push:
     branches:
       - "main"
 jobs:
-  setup:
-    runs-on: ubuntu-latest
+  verify-and-deploy:
+    runs-on: ubuntu-18.04
     steps:
       - uses: actions/checkout@v3
       - uses: actions/setup-node@v3
@@ -14,20 +14,10 @@ jobs:
           node-version: "16"
       - name: Install Dependencies
         run: yarn install
-
-  verify-code-integrity-and-run-tests:
-    needs: setup
-    runs-on: ubuntu-latest
-    steps:
       - name: Run Linting Checks
         run: yarn lint
       - name: Run Tests
         run: yarn test
-
-  build-and-deploy:
-    needs: setup
-    runs-on: ubuntu-18.04
-    steps:
       - name: Make production build
         run: yarn build
       - name: Deploy to Netlify
