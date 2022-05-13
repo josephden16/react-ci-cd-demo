@@ -2,8 +2,8 @@ name: Build and Deploy Preview
 on:
   push:
   pull_request:
-    branches:
-      - "!main"
+    branches-ignore:
+      - "main"
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
