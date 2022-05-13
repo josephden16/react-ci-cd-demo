@@ -3,10 +3,10 @@ name: Run Tests, Build and Deploy to Production
 on:
   push:
     branches:
-      - "main"
+      - "production"
 jobs:
   verify-and-deploy:
-    runs-on: ubuntu-18.04
+    runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
       - uses: actions/setup-node@v3
@@ -14,10 +14,6 @@ jobs:
           node-version: "16"
       - name: Install Dependencies
         run: yarn install
-      - name: Run Linting Checks
-        run: yarn lint
-      - name: Run Tests
-        run: yarn test
       - name: Make production build
         run: yarn build
       - name: Deploy to Netlify
