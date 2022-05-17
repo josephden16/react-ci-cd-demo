@@ -1,4 +1,3 @@
-# .github/workflows/netlify.yml
 name: Run Tests, Build and Deploy to Production
 on:
   push:

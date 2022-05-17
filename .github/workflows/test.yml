@@ -13,5 +13,7 @@ jobs:
         run: yarn install
       - name: Run Linting Checks
         run: yarn lint
+      - name: Build Application
+        run: yarn build
       - name: Run Tests
         run: yarn test
